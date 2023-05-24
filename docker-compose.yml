@@ -3,9 +3,9 @@ services:
   # redis 설정
   redis:
     image: "redis:alpine"
-    network_mode: "host"
-#    ports:
-#      - "6379:6379"
+    # network_mode: "host"
+    ports:
+      - "6379:6379"
 
   # 서버 설정
   backend:
@@ -32,10 +32,10 @@ services:
       - backend
       - frontend
       - redis
-    network_mode: "host"
+    # network_mode: "host"
     restart: always
     build:
       dockerfile: Dockerfile
       context: ./nginx
-#    ports:
-#      - "80:80"
+    ports:
+      - "80:80"
