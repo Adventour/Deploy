@@ -12,8 +12,8 @@ services:
     image: pxxnxx/adventour-back
     container_name: backend
     hostname: backend
-    env_file:
-      - .env
+#     env_file:
+#       - .env
     expose:
       - "80"
 
@@ -23,8 +23,8 @@ services:
     container_name: frontend
     hostname: fronted
     network_mode: "host"
-    env_file:
-      - .env.local
+#     env_file:
+#       - .env.local
 
   # nginx 설정
   nginx:
