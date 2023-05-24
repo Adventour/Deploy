@@ -32,7 +32,7 @@ services:
       - backend
       - frontend
       - redis
-#     network_mode: "host"
+    network_mode: "host"
     restart: always
     build:
       dockerfile: Dockerfile
