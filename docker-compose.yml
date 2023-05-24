@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  # redis 설정
+  redis:
+    image: "redis:alpine"
+    network_mode: "host"
+    ports:
+      - "6379:6379"
+
+  # 서버 설정
+  backend:
+    image: pxxnxx/adventour-back
+    container_name: backend
+    hostname: backend
+    env_file:
+      - .env
+    expose:
+      - "80"
+
+  # 프론트 설정
+  frontend:
+    image: pxxnxx/adventour-front
+    container_name: frontend
+    hostname: fronted
+    network_mode: "host"
+    env_file:
+      - .env.local
+
+  # nginx 설정
+  nginx:
+    depends_on:
+      - backend
+      - frontend
+      - redis
+    network_mode: "host"
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "80:80"
