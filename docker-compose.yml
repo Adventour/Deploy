@@ -15,7 +15,7 @@ services:
     env_file:
       - .env
     expose:
-      - "80"
+      - "8080"
 
   # 프론트 설정
   frontend:
