@@ -3,9 +3,9 @@ services:
   # redis 설정
   redis:
     image: "redis:alpine"
-#     network_mode: "host"
-    ports:
-      - "6379:6379"
+    network_mode: "host"
+#    ports:
+#      - "6379:6379"
 
   # 서버 설정
   backend:
@@ -22,7 +22,7 @@ services:
     image: pxxnxx/adventour-front:master
     container_name: frontend
     hostname: fronted
-#     network_mode: "host"
+    network_mode: "host"
 #     env_file:
 #       - .env.local
 
@@ -37,5 +37,5 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./nginx
-    ports:
-      - "80:80"
+#    ports:
+#      - "80:80"
