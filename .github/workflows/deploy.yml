@@ -23,13 +23,13 @@ jobs:
 #           echo "${{ secrets.ENV_VARS }}" >> .env
 #           cat .env
 
-#       - name: create remote directory
-#         uses: appleboy/ssh-action@master
-#         with:
-#           host: ${{ secrets.HOST }}
-#           username: ubuntu
-#           key: ${{ secrets.KEY }}
-#           script: mkdir -p ~/srv/ubuntu
+      - name: create remote directory
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ubuntu
+          key: ${{ secrets.KEY }}
+          script: mkdir -p ~/srv/ubuntu
 
 #       - name: copy source via ssh key
 #         uses: burnett01/rsync-deployments@4.1
