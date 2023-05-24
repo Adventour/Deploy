@@ -12,8 +12,8 @@ services:
     image: pxxnxx/adventour-back:master
     container_name: backend
     hostname: backend
-#     env_file:
-#       - .env
+    env_file:
+      - .env
     expose:
       - "80"
 
