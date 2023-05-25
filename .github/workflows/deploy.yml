@@ -22,6 +22,9 @@ jobs:
           touch .env
           echo "${{ secrets.ENV_VARS }}" >> .env
           cat .env
+          touch .env.local
+          echo "${{ secrets.ENV_LOCAL_VARS }}" >> .env.local
+          cat .env.local
 
       - name: create remote directory
         uses: appleboy/ssh-action@master
