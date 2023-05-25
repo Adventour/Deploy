@@ -20,26 +20,26 @@ services:
     # expose:
       # - "80"
 
-#   # 프론트 설정
-#   frontend:
-#     image: pxxnxx/adventour-front:master
-#     container_name: frontend
-#     hostname: fronted
-#     network_mode: "host"
-#     env_file:
-#       - .env
-#       - .env.local  # .env.local 파일도 함께 사용
+  # 프론트 설정
+  frontend:
+    image: pxxnxx/adventour-front:master
+    container_name: frontend
+    hostname: fronted
+    network_mode: "host"
+    env_file:
+      - .env
+      - .env.local  # .env.local 파일도 함께 사용
 
-#   # nginx 설정
-#   nginx:
-#     depends_on:
-#       - backend
-#       - frontend
-#       - redis
-#     network_mode: "host"
-#     restart: always
-#     build:
-#       dockerfile: Dockerfile
-#       context: ./nginx
-#     # ports:
-#       # - "80:80"
+  # nginx 설정
+  nginx:
+    depends_on:
+      - backend
+      - frontend
+      - redis
+    network_mode: "host"
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    # ports:
+      # - "80:80"
