@@ -4,8 +4,6 @@ services:
   redis:
     image: "redis:alpine"
     network_mode: "host"
-    # ports:
-    #   - "6379:6379"
 
   # 서버 설정
   backend:
@@ -14,8 +12,6 @@ services:
     hostname: backend
     env_file:
       - .env
-    expose:
-      - "8080"
 
   # 프론트 설정
   frontend:
@@ -23,8 +19,8 @@ services:
     container_name: frontend
     hostname: frontend
     network_mode: "host"
-#     env_file:
-#       - .env.local
+    # env_file:
+    #   - .env.local
 
   # nginx 설정
   nginx:
@@ -38,4 +34,4 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
     # ports:
-      # - "80:80"
+    #   - "80:80"
