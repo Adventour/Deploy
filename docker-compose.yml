@@ -4,6 +4,8 @@ services:
   redis:
     image: "redis:alpine"
     network_mode: "host"
+    # ports:
+    #   - "6379:6379"
 
   # 서버 설정
   backend:
@@ -12,15 +14,20 @@ services:
     hostname: backend
     env_file:
       - .env
+      - .env.local  # .env.local 파일도 함께 사용
+
+#     expose:
+#       - "8080"
 
   # 프론트 설정
   frontend:
     image: pxxnxx/adventour-front:master
     container_name: frontend
-    hostname: frontend
+    hostname: fronted
     network_mode: "host"
-    # env_file:
-    #   - .env.local
+    env_file:
+      - .env
+      - .env.local  # .env.local 파일도 함께 사용
 
   # nginx 설정
   nginx:
@@ -34,4 +41,4 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
     # ports:
-    #   - "80:80"
+      # - "80:80"
